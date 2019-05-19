@@ -16,11 +16,10 @@
                     <dd>
                         <div v-if="videoOfEvent.videoFile">
                             <a v-on:click="openFile(videoOfEvent.videoFileContentType, videoOfEvent.videoFile)">
-                             <video width="320" height="240" controls>
-  <!--source v-bind:src="'data:' + videoOfEvent.videoFile + '.' + videoOfEvent.videoFileContentType" type="video/3gpp"-->
-  <source src="Video0008.3gp'" type="video/3gpp">
-Your browser does not support the video tag.
-</video>   
+                             <video v-bind:width="byteSize(videoOfEvent.videoFile)/150" v-bind:height="byteSize(videoOfEvent.videoFile)/225" controls>
+                             <source v-bind:src="'data:video/' + videoOfEvent.videoFileContentType + ';base64,' + videoOfEvent.videoFile" v-bind:type="videoOfEvent.videoFileContentType" >
+                             </video>
+  <!--source src="Video0008.3gp'" type="video/3gpp"-->  
                             </a>
                             {{videoOfEvent.videoFileContentType}}, {{byteSize(videoOfEvent.videoFile)}}
                         </div>

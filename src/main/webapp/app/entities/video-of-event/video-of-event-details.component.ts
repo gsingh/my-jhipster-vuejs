@@ -11,6 +11,14 @@ export default class VideoOfEventDetails extends mixins(JhiDataUtils) {
   @Inject('videoOfEventService') private videoOfEventService: () => VideoOfEventService;
   public videoOfEvent: IVideoOfEvent = {};
 
+  // videoWidth(){
+  //   byteSize(videoOfEvent.videoFile)/150;
+  // }
+
+  // videoHeight(){
+  //   byteSize(videoOfEvent.videoFile)/225;
+  // }
+
   beforeRouteEnter(to, from, next) {
     next(vm => {
       if (to.params.videoOfEventId) {
